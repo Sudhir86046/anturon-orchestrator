@@ -1,0 +1,83 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Agent {
+  id           String   @id
+  name         String
+  systemPrompt String
+  language     String   @default("en")
+  sttProvider  String   @default("deepgram")
+  llmProvider  String   @default("sarvam")
+  ttsProvider  String   @default("deepgram")
+  createdAt    DateTime @default(now())
+
+  calls      Call[]
+  knowledge  Knowledge[]
+  campaigns  Campaign[]
+}
+model KnowledgeChunk {
+  id          String   @id
+  knowledgeId String
+  agentId     String
+  content     String
+  chunkIndex  Int
+  createdAt   DateTime @default(now())
+}
+model Call {
+  id           String   @id @default(cuid())
+  callId       String
+  callerNumber String?
+  agentId      String?
+  status       String
+  inputAudio   String?
+  transcript   String?
+  responseText String?
+  outputAudio  String?
+  startedAt    DateTime
+  endedAt      DateTime?
+
+  agent Agent? @relation(fields: [agentId], references: [id])
+}
+
+model Conversation {
+  id          String   @id @default(cuid())
+  inputAudio  String?
+  transcript  String?
+  llmResponse String?
+  outputAudio String?
+  createdAt   DateTime @default(now())
+}
+
+model Knowledge {
+  id        String   @id
+  agentId   String
+  fileName  String
+  filePath  String
+  textPath  String
+  createdAt DateTime @default(now())
+
+  agent Agent @relation(fields: [agentId], references: [id])
+}
+
+model Campaign {
+  id             String   @id
+  name           String
+  agentId        String
+  csvPath        String
+  totalContacts  Int
+  completedCalls Int      @default(0)
+  failedCalls    Int      @default(0)
+  status         String
+  leads          Json
+  createdAt      DateTime @default(now())
+  startedAt      DateTime?
+  completedAt    DateTime?
+
+  agent Agent @relation(fields: [agentId], references: [id])
+}

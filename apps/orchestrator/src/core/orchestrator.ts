@@ -1,25 +1,26 @@
 import { WorkflowRunner } from "../workflows/workflow-runner";
 import { STTStep } from "../workflows/steps/stt-step";
+import { KnowledgeStep } from "../workflows/steps/knowledge-step";
 import { LLMStep } from "../workflows/steps/llm-step";
 import { TTSStep } from "../workflows/steps/tts-step";
 import { defaultAgent } from "../agents/agent-config";
+import { AgentRecord } from "../storage/agent-store";
 
 export class Orchestrator {
-  async execute(input: any) {
+  async execute(input: any, agent?: AgentRecord) {
     const runner = new WorkflowRunner();
 
-    const result = await runner.run(
+    return runner.run(
       [
         new STTStep(),
+        new KnowledgeStep(),
         new LLMStep(),
-        new TTSStep()
+        new TTSStep(),
       ],
       {
         input,
-        agent: defaultAgent
+        agent: agent || defaultAgent,
       }
     );
-
-    return result;
   }
 }

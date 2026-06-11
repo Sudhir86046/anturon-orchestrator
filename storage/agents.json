@@ -8,5 +8,15 @@
     "llmProvider": "sarvam",
     "ttsProvider": "deepgram",
     "createdAt": "2026-06-06T20:06:05.127Z"
+  },
+  {
+    "id": "agent_1780804724110",
+    "name": "Dubai Real Estate Agent V2",
+    "systemPrompt": "You are a Dubai real estate phone assistant. Never mention AI or provider. Always answer in one short sentence. If user greets you, reply exactly: Hello sir, are you looking to buy, rent, or sell a property in Dubai?",
+    "language": "en",
+    "sttProvider": "deepgram",
+    "llmProvider": "sarvam",
+    "ttsProvider": "deepgram",
+    "createdAt": "2026-06-07T03:58:44.111Z"
   }
 ]

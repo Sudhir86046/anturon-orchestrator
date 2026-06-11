@@ -3,11 +3,11 @@ import { AgentStore, AgentRecord } from "../storage/agent-store";
 const store = new AgentStore();
 
 export class AgentService {
-  create(data: {
+  async create(data: {
     name: string;
     systemPrompt: string;
     language?: string;
-  }): AgentRecord {
+  }): Promise<AgentRecord> {
     const agent: AgentRecord = {
       id: `agent_${Date.now()}`,
       name: data.name,
@@ -16,15 +16,17 @@ export class AgentService {
       sttProvider: "deepgram",
       llmProvider: "sarvam",
       ttsProvider: "deepgram",
-      createdAt: new Date().toISOString(),
+      createdAt: new Date(),
     };
 
-    store.save(agent);
-
-    return agent;
+    return await store.save(agent);
   }
 
-  list() {
-    return store.list();
+  async list() {
+    return await store.list();
+  }
+
+  async findById(id: string) {
+    return await store.findById(id);
   }
 }

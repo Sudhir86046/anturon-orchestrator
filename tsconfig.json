@@ -2,30 +2,14 @@
   "compilerOptions": {
     "target": "ES2022",
     "module": "CommonJS",
-    "moduleResolution": "node",
-
-    "rootDir": ".",
-    "outDir": "./dist",
-
-    "strict": true,
-
+    "moduleResolution": "Node",
     "esModuleInterop": true,
-    "allowSyntheticDefaultImports": true,
-
-    "types": ["node"],
-
+    "strict": false,
     "skipLibCheck": true,
-    "forceConsistentCasingInFileNames": true,
-
-    "resolveJsonModule": true
-  },
-
-  "include": [
-    "apps/**/*.ts"
-  ],
-
-  "exclude": [
-    "node_modules",
-    "dist"
-  ]
+    "types": ["node"],
+    "baseUrl": ".",
+    "paths": {
+      "@prisma-generated/*": ["generated/prisma/*"]
+    }
+  }
 }

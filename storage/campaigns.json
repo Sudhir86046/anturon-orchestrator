@@ -1,0 +1,68 @@
+[
+  {
+    "id": "campaign_1780905065434",
+    "name": "Demo Campaign",
+    "agentId": "agent_1780804724110",
+    "csvPath": "C:\\Users\\dell\\anturon-orchestrator\\audio\\uploads\\59531bef6b400db373dc9f5c6e5dee29",
+    "totalContacts": 3,
+    "completedCalls": 3,
+    "failedCalls": 0,
+    "status": "completed",
+    "leads": [
+      {
+        "name": "Rahul",
+        "phone": "+919999999999",
+        "status": "called",
+        "callId": "call_campaign_1780905065434_1780905253146"
+      },
+      {
+        "name": "Aman",
+        "phone": "+918888888888",
+        "status": "called",
+        "callId": "call_campaign_1780905065434_1780905265074"
+      },
+      {
+        "name": "Priya",
+        "phone": "+917777777777",
+        "status": "called",
+        "callId": "call_campaign_1780905065434_1780905278267"
+      }
+    ],
+    "createdAt": "2026-06-08T07:51:05.434Z",
+    "startedAt": "2026-06-08T07:54:13.146Z",
+    "completedAt": "2026-06-08T07:54:46.968Z"
+  },
+  {
+    "id": "campaign_1781065468966",
+    "name": "DB Campaign Test",
+    "agentId": "agent_1780995553395",
+    "csvPath": "C:\\Users\\dell\\anturon-orchestrator\\audio\\uploads\\dec03f0d8058421236ac6f7aa696fa51",
+    "totalContacts": 3,
+    "completedCalls": 3,
+    "failedCalls": 0,
+    "status": "completed",
+    "leads": [
+      {
+        "name": "Rahul",
+        "phone": "+919999999999",
+        "status": "called",
+        "callId": "call_campaign_1781065468966_1781065929572"
+      },
+      {
+        "name": "Aman",
+        "phone": "+918888888888",
+        "status": "called",
+        "callId": "call_campaign_1781065468966_1781065935862"
+      },
+      {
+        "name": "Priya",
+        "phone": "+917777777777",
+        "status": "called",
+        "callId": "call_campaign_1781065468966_1781065939698"
+      }
+    ],
+    "createdAt": "2026-06-10T04:24:28.966Z",
+    "startedAt": "2026-06-10T04:32:09.571Z",
+    "completedAt": "2026-06-10T04:32:22.881Z"
+  }
+]

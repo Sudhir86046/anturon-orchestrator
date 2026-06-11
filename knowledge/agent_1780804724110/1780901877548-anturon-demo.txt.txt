@@ -1,0 +1,28 @@
+Anturon Demo Company
+
+Company Name: Anturon Demo
+
+Services:
+- Voice AI Calling
+- Customer Support Automation
+- Appointment Booking
+- Lead Qualification
+- Outbound Campaign Calls
+
+Business Hours:
+Monday to Friday: 9 AM to 6 PM
+
+Support:
+Customers can contact support regarding appointments, campaigns, account issues, and service information.
+
+Refund Policy:
+Refund requests are reviewed within 7 business days.
+
+Appointment Policy:
+Customers can schedule, reschedule, or cancel appointments.
+
+Lead Qualification:
+The AI agent can collect customer name, phone number, email address, and service requirements.
+
+Important:
+The AI assistant should only answer questions related to Anturon Demo Company. If information is unavailable, politely inform the customer.

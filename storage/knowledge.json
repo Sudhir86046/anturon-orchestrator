@@ -1,0 +1,18 @@
+[
+  {
+    "id": "kb_1780901877550",
+    "agentId": "agent_1780804724110",
+    "fileName": "anturon-demo.txt",
+    "filePath": "C:\\Users\\dell\\anturon-orchestrator\\audio\\uploads\\abab9846917a77eff957387e7f2f49c0",
+    "textPath": "C:\\Users\\dell\\anturon-orchestrator\\knowledge\\agent_1780804724110\\1780901877548-anturon-demo.txt.txt",
+    "createdAt": "2026-06-08T06:57:57.550Z"
+  },
+  {
+    "id": "kb_1781006354584",
+    "agentId": "agent_1780995553395",
+    "fileName": "anturon-demo.txt",
+    "filePath": "C:\\Users\\dell\\anturon-orchestrator\\audio\\uploads\\875825f9e6d1b1b3fd77016f0559bd7c",
+    "textPath": "C:\\Users\\dell\\anturon-orchestrator\\knowledge\\agent_1780995553395\\1781006354568-anturon-demo.txt.txt",
+    "createdAt": "2026-06-09T11:59:14.586Z"
+  }
+]

@@ -10,5 +10,89 @@
     "responseText": "Hello sir, how can I help you today?",
     "outputAudio": "C:\\Users\\dell\\anturon-orchestrator\\audio\\output\\response-1780775038144.mp3",
     "endedAt": "2026-06-06T19:43:58.151Z"
+  },
+  {
+    "callId": "call_007",
+    "callerNumber": "+971500000000",
+    "agentId": "agent_1780776365127",
+    "status": "completed",
+    "inputAudio": "C:\\Users\\dell\\anturon-orchestrator\\audio\\uploads\\2e4c71fc137bb16ac9af02d07b44571f",
+    "startedAt": "2026-06-07T03:52:28.628Z",
+    "transcript": "Hello co founder sir",
+    "responseText": "Hello, how can I help you today?",
+    "outputAudio": "C:\\Users\\dell\\anturon-orchestrator\\audio\\output\\response-1780804367875.mp3",
+    "endedAt": "2026-06-07T03:52:47.880Z"
+  },
+  {
+    "callId": "call_008",
+    "callerNumber": "+971500000000",
+    "agentId": "agent_1780804724110",
+    "status": "completed",
+    "inputAudio": "C:\\Users\\dell\\anturon-orchestrator\\audio\\uploads\\2f7c4427ac97956544c5cf50c13bd39e",
+    "startedAt": "2026-06-07T04:04:23.074Z",
+    "transcript": "Hello co founder sir",
+    "responseText": "Hello, how can I help you today?",
+    "outputAudio": "C:\\Users\\dell\\anturon-orchestrator\\audio\\output\\response-1780805080901.mp3",
+    "endedAt": "2026-06-07T04:04:40.909Z"
+  },
+  {
+    "callId": "call_009",
+    "callerNumber": "+971500000000",
+    "agentId": "agent_1780804724110",
+    "status": "completed",
+    "inputAudio": "C:\\Users\\dell\\anturon-orchestrator\\audio\\uploads\\79a0ecfb3559e9b749e8d96375fffa72",
+    "startedAt": "2026-06-07T04:23:53.065Z",
+    "transcript": "Hello co founder sir",
+    "responseText": "Hello sir, are you looking to buy, rent, or sell a property in Dubai?",
+    "outputAudio": "C:\\Users\\dell\\anturon-orchestrator\\audio\\output\\response-1780806239141.mp3",
+    "endedAt": "2026-06-07T04:23:59.143Z"
+  },
+  {
+    "callId": "call_kb_001",
+    "callerNumber": "+971500000000",
+    "agentId": "agent_1780804724110",
+    "status": "completed",
+    "inputAudio": "C:\\Users\\dell\\anturon-orchestrator\\audio\\uploads\\b75915de87d7eb03c74f263b592e75fa",
+    "startedAt": "2026-06-08T07:18:11.939Z",
+    "transcript": "Hello co founder sir",
+    "responseText": "Hello sir, are you looking to buy, rent, or sell a property in Dubai?",
+    "outputAudio": "C:\\Users\\dell\\anturon-orchestrator\\audio\\output\\response-1780903104775.mp3",
+    "endedAt": "2026-06-08T07:18:24.781Z"
+  },
+  {
+    "callId": "call_campaign_1780905065434_1780905253146",
+    "callerNumber": "+919999999999",
+    "agentId": "agent_1780804724110",
+    "status": "completed",
+    "inputAudio": "./audio/sample.wav",
+    "startedAt": "2026-06-08T07:54:13.154Z",
+    "transcript": "Hello co founder sir",
+    "responseText": "Hello sir, are you looking to buy, rent, or sell a property in Dubai?",
+    "outputAudio": "C:\\Users\\dell\\anturon-orchestrator\\audio\\output\\response-1780905264923.mp3",
+    "endedAt": "2026-06-08T07:54:24.953Z"
+  },
+  {
+    "callId": "call_campaign_1780905065434_1780905265074",
+    "callerNumber": "+918888888888",
+    "agentId": "agent_1780804724110",
+    "status": "completed",
+    "inputAudio": "./audio/sample.wav",
+    "startedAt": "2026-06-08T07:54:25.075Z",
+    "transcript": "Hello co founder sir",
+    "responseText": "Hello sir, are you looking to buy, rent, or sell a property in Dubai?",
+    "outputAudio": "C:\\Users\\dell\\anturon-orchestrator\\audio\\output\\response-1780905278253.mp3",
+    "endedAt": "2026-06-08T07:54:38.256Z"
+  },
+  {
+    "callId": "call_campaign_1780905065434_1780905278267",
+    "callerNumber": "+917777777777",
+    "agentId": "agent_1780804724110",
+    "status": "completed",
+    "inputAudio": "./audio/sample.wav",
+    "startedAt": "2026-06-08T07:54:38.268Z",
+    "transcript": "Hello co founder sir",
+    "responseText": "Hello sir, are you looking to buy, rent, or sell a property in Dubai?",
+    "outputAudio": "C:\\Users\\dell\\anturon-orchestrator\\audio\\output\\response-1780905286954.mp3",
+    "endedAt": "2026-06-08T07:54:46.959Z"
   }
 ]

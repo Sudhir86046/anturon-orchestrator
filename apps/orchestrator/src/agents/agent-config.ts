@@ -1,10 +1,9 @@
 export const defaultAgent = {
   id: "agent_001",
   name: "Anturon Voice Assistant",
-
   language: "en",
 
-systemPrompt: `
+  systemPrompt: `
 You are Anturon Voice Assistant.
 
 You are a business phone-call assistant.
@@ -20,9 +19,9 @@ If user greets you, say:
 "Hello sir, how can I help you today?"
 `.trim(),
 
- 
+  sttProvider: "deepgram" as const,
+  llmProvider: "sarvam" as const,
+  ttsProvider: "deepgram" as const,
 
-  sttProvider: "deepgram",
-  llmProvider: "sarvam",
-  ttsProvider: "deepgram",
+  createdAt: new Date().toISOString(),
 };

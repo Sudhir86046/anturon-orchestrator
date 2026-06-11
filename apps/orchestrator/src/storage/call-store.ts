@@ -1,36 +1,42 @@
-import fs from "fs";
-import path from "path";
+import { prisma } from "../db/prisma";
 import { CallSession } from "../calls/call-session";
 
 export class CallStore {
-  private filePath = path.resolve("./storage/calls.json");
-
-  save(session: CallSession) {
-    const dir = path.dirname(this.filePath);
-
-    fs.mkdirSync(dir, { recursive: true });
-
-    let existing: CallSession[] = [];
-
-    if (fs.existsSync(this.filePath)) {
-      const raw = fs.readFileSync(this.filePath, "utf-8");
-      existing = raw ? JSON.parse(raw) : [];
-    }
-
-    existing.push(session);
-
-    fs.writeFileSync(this.filePath, JSON.stringify(existing, null, 2));
-
-    console.log("Call saved:", this.filePath);
+  async save(session: CallSession) {
+    return prisma.call.create({
+      data: {
+        callId: session.callId,
+        callerNumber: session.callerNumber,
+        agentId: session.agentId,
+        status: session.status,
+        inputAudio: session.inputAudio,
+        transcript: session.transcript,
+        responseText: session.responseText,
+        outputAudio: session.outputAudio,
+        startedAt: new Date(session.startedAt),
+        endedAt: session.endedAt ? new Date(session.endedAt) : null,
+      },
+    });
   }
 
-  list(): CallSession[] {
-    if (!fs.existsSync(this.filePath)) {
-      return [];
-    }
+  async list(): Promise<CallSession[]> {
+    const calls = await prisma.call.findMany({
+      orderBy: {
+        startedAt: "desc",
+      },
+    });
 
-    const raw = fs.readFileSync(this.filePath, "utf-8");
-
-    return raw ? JSON.parse(raw) : [];
+    return calls.map((call) => ({
+      callId: call.callId,
+      callerNumber: call.callerNumber || undefined,
+      agentId: call.agentId || undefined,
+      status: call.status as CallSession["status"],
+      inputAudio: call.inputAudio || undefined,
+      transcript: call.transcript || undefined,
+      responseText: call.responseText || undefined,
+      outputAudio: call.outputAudio || undefined,
+      startedAt: call.startedAt.toISOString(),
+      endedAt: call.endedAt ? call.endedAt.toISOString() : undefined,
+    }));
   }
 }

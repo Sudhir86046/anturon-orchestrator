@@ -1,11 +1,11 @@
 import { Orchestrator } from "../core/orchestrator";
 import { CallSession } from "./call-session";
 import { CallStore } from "../storage/call-store";
+import { AgentService } from "../agents/agent-service";
 
 const orchestrator = new Orchestrator();
 const callStore = new CallStore();
-
-const sessions: CallSession[] = [];
+const agentService = new AgentService();
 
 export class CallController {
   async handleIncomingCall(payload: {
@@ -14,6 +14,10 @@ export class CallController {
     audioPath: string;
     agentId?: string;
   }) {
+    const agent = payload.agentId
+      ? await agentService.findById(payload.agentId)
+      : undefined;
+
     const session: CallSession = {
       callId: payload.callId,
       callerNumber: payload.callerNumber,
@@ -23,12 +27,13 @@ export class CallController {
       startedAt: new Date().toISOString(),
     };
 
-    sessions.push(session);
-
     try {
-      const result = await orchestrator.execute({
-        audio: payload.audioPath,
-      });
+      const result = await orchestrator.execute(
+        {
+          audio: payload.audioPath,
+        },
+        agent || undefined
+      );
 
       session.status = "completed";
       session.transcript = result.transcript;
@@ -36,20 +41,20 @@ export class CallController {
       session.outputAudio = result.audioOutputPath;
       session.endedAt = new Date().toISOString();
 
-      callStore.save(session);
+      await callStore.save(session);
 
       return session;
     } catch (error: any) {
       session.status = "failed";
       session.endedAt = new Date().toISOString();
 
-      callStore.save(session);
+      await callStore.save(session);
 
       throw error;
     }
   }
 
-  listSessions() {
-    return callStore.list();
+  async listSessions() {
+    return await callStore.list();
   }
 }

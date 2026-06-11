@@ -1,32 +1,44 @@
-import fs from "fs";
-import path from "path";
+import { prisma } from "../db/prisma";
 
 export interface AgentRecord {
   id: string;
   name: string;
   systemPrompt: string;
   language: string;
-  sttProvider: "deepgram";
-  llmProvider: "sarvam";
-  ttsProvider: "deepgram";
-  createdAt: string;
+  sttProvider: string;
+  llmProvider: string;
+  ttsProvider: string;
+  createdAt: string | Date;
 }
 
 export class AgentStore {
-  private filePath = path.resolve("./storage/agents.json");
-
-  list(): AgentRecord[] {
-    if (!fs.existsSync(this.filePath)) return [];
-    const raw = fs.readFileSync(this.filePath, "utf-8");
-    return raw ? JSON.parse(raw) : [];
+  async save(agent: AgentRecord) {
+    return prisma.agent.create({
+      data: {
+        id: agent.id,
+        name: agent.name,
+        systemPrompt: agent.systemPrompt,
+        language: agent.language,
+        sttProvider: agent.sttProvider,
+        llmProvider: agent.llmProvider,
+        ttsProvider: agent.ttsProvider,
+      },
+    });
   }
 
-  save(agent: AgentRecord) {
-    fs.mkdirSync(path.dirname(this.filePath), { recursive: true });
+  async list() {
+    return prisma.agent.findMany({
+      orderBy: {
+        createdAt: "desc",
+      },
+    });
+  }
 
-    const agents = this.list();
-    agents.push(agent);
-
-    fs.writeFileSync(this.filePath, JSON.stringify(agents, null, 2));
+  async findById(id: string) {
+    return prisma.agent.findUnique({
+      where: {
+        id,
+      },
+    });
   }
 }
