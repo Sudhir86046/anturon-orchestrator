@@ -762,6 +762,32 @@ app.get("/agents/:agentId/knowledge/queries", async (req, res) => {
     });
   }
 });
+
+app.get("/agents/:id", async (req, res) => {
+  try {
+    const id = String(req.params.id);
+
+    const agent = await agentService.findById(id);
+
+    if (!agent) {
+      return res.status(404).json({
+        success: false,
+        error: "Agent not found",
+      });
+    }
+
+    return res.json({
+      success: true,
+      agent,
+    });
+  } catch (error: any) {
+    return res.status(500).json({
+      success: false,
+      error: error.message,
+    });
+  }
+});
+
 app.use((req, res) => {
   return res.status(404).json({
     success: false,
